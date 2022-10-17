@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operation</title>
+</head>
+<body>
+    <center>
+        <h1>CURD Operation using postgresql</h1>
+
+        <a href="{% url 'insertemp' %}">Create New Employee</a>
+        <table border="1">
+            <tr>
+                <th>Employee id</th>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Occupation</th>
+                <th>Salary</th>
+                <th>Gender</th>
+            </tr>
+            {% for item in data%}
+            <tr>
+                <td>{{item.id}}</td>
+                 <td>{{item.empname}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.occupation}}</td>
+                <td>{{item.salary}}</td>
+                <td>{{item.gender}}</td>
+                <td><a href="edit/{{item.id}}">Edit</a></td>
+                <td><a href="Delete/{{item.id}}" onclick="return confirm('Are you want to delete the record??..')">Delete</a></td>
+            </tr>
+
+            {% endfor%}
+
+        </table>
+    </center>
+</body>
+</html>

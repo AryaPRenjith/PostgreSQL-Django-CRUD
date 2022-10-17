@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operation</title>
+</head>
+<body>
+    <center>
+        <h1>Edit The Details</h1>
+
+        <form method="post" action="/update/{{EmpModel.id}}">
+            {% csrf_token %}
+
+        <table border="1">
+
+            <tr>
+                <td>Employee Id</td>
+                <td><input type="text" name="id" value="{{EmpModel.id}}" readonly></td>
+            </tr>
+
+            <tr>
+                <td>Employee Name</td>
+                <td><input type="text" name="name" value="{{EmpModel.empname}}"></td>
+            </tr>
+
+            <tr>
+                <td>Employee Email</td>
+                <td><input type="text" name="email" value="{{EmpModel.email}}"></td>
+            </tr>
+
+            <tr>
+                <td>Occupation </td>
+                <td><input type="text" name="occupation" value="{{EmpModel.occupation}}"></td>
+            </tr>
+
+            <tr>
+                <td>Salary </td>
+                <td><input type="text" name="salary" value="{{EmpModel.salary}}"></td>
+            </tr>
+
+            <tr>
+                <td>Gender </td>
+                <td><input type="text" name="gender" value="{{EmpModel.gender}}"></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="Update Record"></td>
+                <td>
+                    {% if messages %}
+                    {% for mes in messages %}
+                    <b style="color: green;">{{mes}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+        <a href="{% url 'showemp' %}">Go To Home Page</a>
+        
+    </center>
+</body>
+</html>
